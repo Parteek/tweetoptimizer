@@ -2,6 +2,7 @@
 
 **twitter predictor** predicts the best time to post for an account based on the followers last tweet.
 
+Here is the link to the app [demo](https://pacific-fjord-42934.herokuapp.com)
 ## Installation
 
 **Install gems**
