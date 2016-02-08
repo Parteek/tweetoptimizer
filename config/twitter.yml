@@ -1,0 +1,14 @@
+default: &default
+  key: uf0qo4B41NXvA6J4EcB2gQ
+  secret: gzCsvIgmvw9tiAownQsijM4GRcyq6eXnpzvAThbxExk
+  token: 588919471-1IG2lK8G0t0XoVFnJADAHWxIjJl4E7hxt8gSQKkd
+  token_secret: Xt7Z1lsYyUf7bnpoGjCBPeL9hMHnCdDEfhwyJ1bL5Q
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
