@@ -31,6 +31,7 @@ gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
