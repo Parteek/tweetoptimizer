@@ -34,7 +34,7 @@ class HomeController < ApplicationController
         if follower.status.present?
           # convert the string into date
           last_tweet_date = DateTime.parse follower.status.created_at.to_s
-
+          puts last_tweet_date.hour
           # fetch the hour of the date, increment the count for that hour and set the best time
           last_tweet_hour = "#{last_tweet_date.hour}:00 - #{last_tweet_date.hour+1}:00"
           time[last_tweet_hour] += 1
