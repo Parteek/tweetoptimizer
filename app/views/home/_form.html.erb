@@ -1,0 +1,7 @@
+<%= form_tag(best_day_time_path, method: 'post') do %>
+  <div class="form-group">
+    <%= label_tag(:username, 'Username or Twitter ID') %>
+    <%= text_field_tag :username, value, class: 'form-control', placeholder: 'Username/ID', name: 'twitter[username]' %>
+  </div>
+  <%= submit_tag('Submit', class: 'btn btn-default') %>
+<% end %>

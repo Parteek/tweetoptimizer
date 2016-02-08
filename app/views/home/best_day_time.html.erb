@@ -1,0 +1,25 @@
+<%= render partial: 'form', locals: {value: params[:twitter][:username]} %>
+<% if @result.present? %>
+  <% if @result[:best_day].present? and @result[:best_time].present? %>
+    <h2>
+       <span class="text-primary"><%= params[:twitter][:username] %></span> should tweet on <span class="text-primary"><%= @result[:best_day][:value] %></span> and in between <span class="text-primary"><%= @result[:best_time][:value] %></span> for best performance.
+    </h2>
+
+  <%else%>
+    <h2 class="text-danger"> There is no data to make any conclusion. </h2>
+  <%end%>
+  <div id="days-container" style="min-width: 310px; height: 400px; margin: 0 auto">
+
+  </div>
+  <div id="times-container" style="min-width: 310px; height: 400px; margin: 0 auto">
+
+  </div>
+  <script>
+    $(function () {
+      build_day_graph(<%= @result[:day].values %>);
+      build_time_graph(<%= @result[:time].values %>);
+    });
+  </script>
+<% else %>
+  <h2 class="text-danger"><%= @error %> </h2>
+<% end %>
