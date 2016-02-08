@@ -28,7 +28,7 @@ class HomeController < ApplicationController
 
       days = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
 
-      day, time = initialize_date_hash(days), initialize_time_hash
+      day, time = initialize_day_hash(days), initialize_time_hash
 
       data.each do |follower|
         if follower.status.present?
@@ -52,7 +52,6 @@ class HomeController < ApplicationController
           end
         end
       end
-
       result[:day] = day
       result[:best_day] = best_day
       result[:time] = time
@@ -63,9 +62,11 @@ class HomeController < ApplicationController
 
   # set 0 for all the days in the week.
   def initialize_day_hash(days)
+    day = {}
     days.each do |d|
       day[d] = 0
     end
+    day
   end
 
   # set 0 for all the hour ranges in a day.
@@ -74,5 +75,6 @@ class HomeController < ApplicationController
     (0..23).each do |hr|
       time["#{hr}:00 - #{hr+1}:00"] = 0
     end
+    time
   end
 end
