@@ -6,7 +6,15 @@ class HomeController < ApplicationController
 
   def best_day_time
     begin
-      response = TC.followers(twitter_params[:username])
+      fids = TC.follower_ids(twitter_params[:username]).attrs[:ids]
+      if fids.length > 1500
+        fids = fids[0..1499]
+      end
+      response = []
+      for i in (0..((fids.length.to_f/100).ceil - 1))
+        index = i*100
+        response += TC.users(fids[index..(index+99)])
+      end
       @result = find_best_day_and_time(response)
     rescue
       @error = 'Could not fetch the results'
